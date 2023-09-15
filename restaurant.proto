@@ -1,0 +1,27 @@
+syntax ="proto3";
+
+service RestaurantService {
+    rpc GetAllRestaurant(Empty) returns (RestaurantList) {}
+    rpc GetRestuarant (RestaurantId) returns (Restaurant){}
+    rpc AddRestaurant (Restaurant) returns (Restaurant) {}
+    rpc UpdateRestaurant (Restaurant) returns (Restaurant) {}
+    rpc DeleteRestaurant (RestaurantId) returns (Empty) {}
+}
+
+message Empty{}
+
+message Restaurant {
+    string id =1;
+    string name=2;
+    string open_time=3;
+    string close_time=4;
+    string address=5;
+}
+
+message RestaurantList{
+    repeated Restaurant Restaurant=1;
+}
+
+message RestaurantId{
+    string id=1;
+}
