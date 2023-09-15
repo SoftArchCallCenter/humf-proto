@@ -1,5 +1,7 @@
 syntax ="proto3";
 
+package user;
+
 service UserService {
     rpc GetAllUser(Empty) returns (UserList) {}
     rpc GetRestuarant (UserId) returns (User){}

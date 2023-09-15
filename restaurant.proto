@@ -1,10 +1,10 @@
 syntax ="proto3";
 
-package restuarant;
+package restaurant;
 
 service RestaurantService {
     rpc GetAllRestaurant(Empty) returns (RestaurantList) {}
-    rpc GetRestuarant (RestaurantId) returns (Restaurant){}
+    rpc GetRestaurant (RestaurantId) returns (Restaurant){}
     rpc AddRestaurant (Restaurant) returns (Restaurant) {}
     rpc UpdateRestaurant (Restaurant) returns (Restaurant) {}
     rpc DeleteRestaurant (RestaurantId) returns (Empty) {}
