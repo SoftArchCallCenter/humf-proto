@@ -1,5 +1,7 @@
 syntax ="proto3";
 
+package restuarant;
+
 service RestaurantService {
     rpc GetAllRestaurant(Empty) returns (RestaurantList) {}
     rpc GetRestuarant (RestaurantId) returns (Restaurant){}
