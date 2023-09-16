@@ -4,7 +4,7 @@ package user;
 
 service UserService {
     rpc GetAllUser(Empty) returns (UserList) {}
-    rpc GetRestuarant (UserId) returns (User){}
+    rpc GetRestaurant (UserId) returns (User){}
     rpc AddUser (User) returns (User) {}
     rpc UpdateUser (User) returns (User) {}
     rpc DeleteUser (UserId) returns (Empty) {}
