@@ -8,7 +8,7 @@ export interface Empty {
 }
 
 export interface RestaurantId {
-  id: string;
+  id: number;
 }
 
 export interface CreateRestaurantDto {
@@ -26,7 +26,7 @@ export interface UpdateRestaurantDto {
 }
 
 export interface Restaurant {
-  id: string;
+  id: number;
   name: string;
   openTime: string;
   closeTime: string;
