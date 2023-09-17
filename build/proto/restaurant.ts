@@ -7,6 +7,24 @@ export const protobufPackage = "restaurant";
 export interface Empty {
 }
 
+export interface RestaurantId {
+  id: string;
+}
+
+export interface CreateRestaurantDto {
+  name: string;
+  openTime: string;
+  closeTime: string;
+  address: string;
+}
+
+export interface UpdateRestaurantDto {
+  name: string;
+  openTime: string;
+  closeTime: string;
+  address: string;
+}
+
 export interface Restaurant {
   id: string;
   name: string;
@@ -19,10 +37,6 @@ export interface RestaurantList {
   Restaurant: Restaurant[];
 }
 
-export interface RestaurantId {
-  id: string;
-}
-
 export const RESTAURANT_PACKAGE_NAME = "restaurant";
 
 export interface RestaurantServiceClient {
@@ -30,9 +44,9 @@ export interface RestaurantServiceClient {
 
   getRestaurant(request: RestaurantId): Observable<Restaurant>;
 
-  addRestaurant(request: Restaurant): Observable<Restaurant>;
+  addRestaurant(request: CreateRestaurantDto): Observable<Restaurant>;
 
-  updateRestaurant(request: Restaurant): Observable<Restaurant>;
+  updateRestaurant(request: UpdateRestaurantDto): Observable<Restaurant>;
 
   deleteRestaurant(request: RestaurantId): Observable<Empty>;
 }
@@ -42,9 +56,9 @@ export interface RestaurantServiceController {
 
   getRestaurant(request: RestaurantId): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
 
-  addRestaurant(request: Restaurant): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
+  addRestaurant(request: CreateRestaurantDto): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
 
-  updateRestaurant(request: Restaurant): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
+  updateRestaurant(request: UpdateRestaurantDto): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
 
   deleteRestaurant(request: RestaurantId): Promise<Empty> | Observable<Empty> | Empty;
 }
