@@ -19,6 +19,7 @@ export interface CreateRestaurantDto {
 }
 
 export interface UpdateRestaurantDto {
+  id: number;
   name: string;
   openTime: string;
   closeTime: string;
@@ -39,7 +40,7 @@ export interface RestaurantList {
 
 export const RESTAURANT_PACKAGE_NAME = "restaurant";
 
-export interface RestaurantGrpcServiceClient {
+export interface RestaurantServiceClient {
   getAllRestaurant(request: Empty): Observable<RestaurantList>;
 
   getRestaurant(request: RestaurantId): Observable<Restaurant>;
@@ -51,7 +52,7 @@ export interface RestaurantGrpcServiceClient {
   deleteRestaurant(request: RestaurantId): Observable<Empty>;
 }
 
-export interface RestaurantGrpcServiceController {
+export interface RestaurantServiceController {
   getAllRestaurant(request: Empty): Promise<RestaurantList> | Observable<RestaurantList> | RestaurantList;
 
   getRestaurant(request: RestaurantId): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
@@ -63,7 +64,7 @@ export interface RestaurantGrpcServiceController {
   deleteRestaurant(request: RestaurantId): Promise<Empty> | Observable<Empty> | Empty;
 }
 
-export function RestaurantGrpcServiceControllerMethods() {
+export function RestaurantServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods: string[] = [
       "getAllRestaurant",
@@ -74,14 +75,14 @@ export function RestaurantGrpcServiceControllerMethods() {
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcMethod("RestaurantGrpcService", method)(constructor.prototype[method], method, descriptor);
+      GrpcMethod("RestaurantService", method)(constructor.prototype[method], method, descriptor);
     }
     const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcStreamMethod("RestaurantGrpcService", method)(constructor.prototype[method], method, descriptor);
+      GrpcStreamMethod("RestaurantService", method)(constructor.prototype[method], method, descriptor);
     }
   };
 }
 
-export const RESTAURANT_GRPC_SERVICE_NAME = "RestaurantGrpcService";
+export const RESTAURANT_SERVICE_NAME = "RestaurantService";
