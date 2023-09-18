@@ -2,7 +2,7 @@ syntax ="proto3";
 
 package restaurant;
 
-service RestaurantService {
+service RestaurantGrpcService {
     rpc GetAllRestaurant(Empty) returns (RestaurantList) {}
     rpc GetRestaurant (RestaurantId) returns (Restaurant){}
     rpc AddRestaurant (CreateRestaurantDto) returns (Restaurant) {}
@@ -13,7 +13,7 @@ service RestaurantService {
 message Empty{}
 
 message RestaurantId{
-    int64 id=1;
+    int32 id=1;
 }
 
 message CreateRestaurantDto {
@@ -31,7 +31,7 @@ message UpdateRestaurantDto {
 }
 
 message Restaurant {
-    int64 id =1;
+    int32 id =1;
     string name=2;
     string open_time=3;
     string close_time=4;

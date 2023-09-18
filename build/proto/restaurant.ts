@@ -39,7 +39,7 @@ export interface RestaurantList {
 
 export const RESTAURANT_PACKAGE_NAME = "restaurant";
 
-export interface RestaurantServiceClient {
+export interface RestaurantGrpcServiceClient {
   getAllRestaurant(request: Empty): Observable<RestaurantList>;
 
   getRestaurant(request: RestaurantId): Observable<Restaurant>;
@@ -51,7 +51,7 @@ export interface RestaurantServiceClient {
   deleteRestaurant(request: RestaurantId): Observable<Empty>;
 }
 
-export interface RestaurantServiceController {
+export interface RestaurantGrpcServiceController {
   getAllRestaurant(request: Empty): Promise<RestaurantList> | Observable<RestaurantList> | RestaurantList;
 
   getRestaurant(request: RestaurantId): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
@@ -63,7 +63,7 @@ export interface RestaurantServiceController {
   deleteRestaurant(request: RestaurantId): Promise<Empty> | Observable<Empty> | Empty;
 }
 
-export function RestaurantServiceControllerMethods() {
+export function RestaurantGrpcServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods: string[] = [
       "getAllRestaurant",
@@ -74,14 +74,14 @@ export function RestaurantServiceControllerMethods() {
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcMethod("RestaurantService", method)(constructor.prototype[method], method, descriptor);
+      GrpcMethod("RestaurantGrpcService", method)(constructor.prototype[method], method, descriptor);
     }
     const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcStreamMethod("RestaurantService", method)(constructor.prototype[method], method, descriptor);
+      GrpcStreamMethod("RestaurantGrpcService", method)(constructor.prototype[method], method, descriptor);
     }
   };
 }
 
-export const RESTAURANT_SERVICE_NAME = "RestaurantService";
+export const RESTAURANT_GRPC_SERVICE_NAME = "RestaurantGrpcService";
