@@ -11,6 +11,13 @@ export interface RestaurantId {
   id: number;
 }
 
+export interface FilterRestaurantDto {
+  name: string;
+  openTime: string;
+  closeTime: string;
+  address: string;
+}
+
 export interface CreateRestaurantDto {
   name: string;
   openTime: string;
@@ -45,6 +52,8 @@ export interface RestaurantServiceClient {
 
   getRestaurant(request: RestaurantId): Observable<Restaurant>;
 
+  filterRestaurant(request: FilterRestaurantDto): Observable<RestaurantList>;
+
   addRestaurant(request: CreateRestaurantDto): Observable<Restaurant>;
 
   updateRestaurant(request: UpdateRestaurantDto): Observable<Restaurant>;
@@ -56,6 +65,8 @@ export interface RestaurantServiceController {
   getAllRestaurant(request: Empty): Promise<RestaurantList> | Observable<RestaurantList> | RestaurantList;
 
   getRestaurant(request: RestaurantId): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
+
+  filterRestaurant(request: FilterRestaurantDto): Promise<RestaurantList> | Observable<RestaurantList> | RestaurantList;
 
   addRestaurant(request: CreateRestaurantDto): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
 
@@ -70,6 +81,7 @@ export function RestaurantServiceControllerMethods() {
       "getAllRestaurant",
       "getRestaurant",
       "addRestaurant",
+      "filterRestaurant",
       "updateRestaurant",
       "deleteRestaurant",
     ];
