@@ -52,7 +52,7 @@ export interface RestaurantServiceClient {
 
   getRestaurant(request: RestaurantId): Observable<Restaurant>;
 
-  filterRestaurant(request: FilterRestaurantDto): Observable<RestaurantList>;
+  filterRestaurant(request: FilterRestaurantDto): Observable<Restaurant>;
 
   addRestaurant(request: CreateRestaurantDto): Observable<Restaurant>;
 
@@ -66,7 +66,7 @@ export interface RestaurantServiceController {
 
   getRestaurant(request: RestaurantId): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
 
-  filterRestaurant(request: FilterRestaurantDto): Promise<RestaurantList> | Observable<RestaurantList> | RestaurantList;
+  filterRestaurant(request: FilterRestaurantDto): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
 
   addRestaurant(request: CreateRestaurantDto): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
 
@@ -80,8 +80,8 @@ export function RestaurantServiceControllerMethods() {
     const grpcMethods: string[] = [
       "getAllRestaurant",
       "getRestaurant",
-      "addRestaurant",
       "filterRestaurant",
+      "addRestaurant",
       "updateRestaurant",
       "deleteRestaurant",
     ];

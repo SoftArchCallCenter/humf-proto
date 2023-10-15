@@ -1,0 +1,36 @@
+syntax ="proto3";
+
+package kitchen;
+
+service KitchenService {
+    rpc GetOrder(KitchenId) returns (Order) {}
+    rpc CreateTicket (KitchenId) returns (TicketList){}
+    rpc GetTickets (KitchenId) returns (TicketList){}
+    rpc UpdateTicket (UpdateTicketDto) returns (Ticket) {}
+    rpc CompleteTicket (TicketId) returns (Empty) {}
+}
+
+message Empty{}
+
+message Order{}
+
+message KitchenId{
+    string id=1;
+}
+
+message TicketId{
+    string id=1;
+}
+
+message Ticket{
+
+}
+
+message TicketList{
+    repeated Ticket Tickets=1;
+}
+
+message UpdateTicketDto{
+    string id=1;
+
+}
