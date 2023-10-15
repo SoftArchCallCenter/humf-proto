@@ -95,9 +95,9 @@ export function RestaurantServiceControllerMethods() {
     const grpcMethods: string[] = [
       "getAllRestaurant",
       "getRestaurant",
-      "addRestaurant",
       "filterRestaurant",
       "getAllMenus",
+      "addRestaurant",
       "updateRestaurant",
       "deleteRestaurant",
     ];

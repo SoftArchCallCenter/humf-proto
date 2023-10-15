@@ -1,0 +1,12 @@
+syntax ="proto3";
+
+package queue;
+
+service KitchenService {
+    rpc createOrder(Order) returns (Order) {}
+}
+
+// ไม่น่าต้องมี id
+message Order{
+
+}
