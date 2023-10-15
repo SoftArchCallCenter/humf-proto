@@ -5,7 +5,7 @@ package restaurant;
 service RestaurantService {
     rpc GetAllRestaurant(Empty) returns (RestaurantList) {}
     rpc GetRestaurant (RestaurantId) returns (Restaurant){}
-    rpc FilterRestaurant (FilterRestaurantDto) returns (Restaurant) {}
+    rpc FilterRestaurant (FilterRestaurantDto) returns (RestaurantList) {}
     rpc AddRestaurant (CreateRestaurantDto) returns (Restaurant) {}
     rpc UpdateRestaurant (UpdateRestaurantDto) returns (Restaurant) {}
     rpc DeleteRestaurant (RestaurantId) returns (Empty) {}
