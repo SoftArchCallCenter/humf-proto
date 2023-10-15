@@ -27,7 +27,7 @@ message Ticket{
 }
 
 message TicketList{
-    repeated Ticket Tickets=1;
+    repeated Ticket tickets=1;
 }
 
 message UpdateTicketDto{

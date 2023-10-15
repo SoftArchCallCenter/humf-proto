@@ -22,7 +22,7 @@ export interface Ticket {
 }
 
 export interface TicketList {
-  Tickets: Ticket[];
+  tickets: Ticket[];
 }
 
 export interface UpdateTicketDto {
