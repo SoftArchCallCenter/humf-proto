@@ -65,13 +65,13 @@ export interface RestaurantServiceClient {
 
   filterRestaurant(request: FilterRestaurantDto): Observable<RestaurantList>;
 
-  getAllMenus(request: RestaurantId): Observable<MenuList>
-
   addRestaurant(request: CreateRestaurantDto): Observable<Restaurant>;
 
   updateRestaurant(request: UpdateRestaurantDto): Observable<Restaurant>;
 
   deleteRestaurant(request: RestaurantId): Observable<Empty>;
+
+  getAllMenus(request: RestaurantId): Observable<MenuList>;
 }
 
 export interface RestaurantServiceController {
@@ -81,13 +81,13 @@ export interface RestaurantServiceController {
 
   filterRestaurant(request: FilterRestaurantDto): Promise<RestaurantList> | Observable<RestaurantList> | RestaurantList;
 
-  getAllMenus(request: RestaurantId): Promise<MenuList> | Observable<MenuList> | MenuList;
-
   addRestaurant(request: CreateRestaurantDto): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
 
   updateRestaurant(request: UpdateRestaurantDto): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
 
   deleteRestaurant(request: RestaurantId): Promise<Empty> | Observable<Empty> | Empty;
+
+  getAllMenus(request: RestaurantId): Promise<MenuList> | Observable<MenuList> | MenuList;
 }
 
 export function RestaurantServiceControllerMethods() {
@@ -96,10 +96,10 @@ export function RestaurantServiceControllerMethods() {
       "getAllRestaurant",
       "getRestaurant",
       "filterRestaurant",
-      "getAllMenus",
       "addRestaurant",
       "updateRestaurant",
       "deleteRestaurant",
+      "getAllMenus",
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
