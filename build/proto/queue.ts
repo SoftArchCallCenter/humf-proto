@@ -10,27 +10,27 @@ export interface Order {
 
 export const QUEUE_PACKAGE_NAME = "queue";
 
-export interface KitchenServiceClient {
+export interface QueueServiceClient {
   createOrder(request: Order): Observable<Order>;
 }
 
-export interface KitchenServiceController {
+export interface QueueServiceController {
   createOrder(request: Order): Promise<Order> | Observable<Order> | Order;
 }
 
-export function KitchenServiceControllerMethods() {
+export function QueueServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods: string[] = ["createOrder"];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcMethod("KitchenService", method)(constructor.prototype[method], method, descriptor);
+      GrpcMethod("QueueService", method)(constructor.prototype[method], method, descriptor);
     }
     const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-      GrpcStreamMethod("KitchenService", method)(constructor.prototype[method], method, descriptor);
+      GrpcStreamMethod("QueueService", method)(constructor.prototype[method], method, descriptor);
     }
   };
 }
 
-export const KITCHEN_SERVICE_NAME = "KitchenService";
+export const QUEUE_SERVICE_NAME = "QueueService";
