@@ -9,24 +9,12 @@ service RestaurantService {
     rpc AddRestaurant (CreateRestaurantDto) returns (Restaurant) {}
     rpc UpdateRestaurant (UpdateRestaurantDto) returns (Restaurant) {}
     rpc DeleteRestaurant (RestaurantId) returns (Empty) {}
-    rpc GetAllMenus (RestaurantId) returns (MenuList) {}
 }
 
 message Empty{}
 
 message RestaurantId{
     int32 id=1;
-}
-
-message Menu {
-    int32 id = 1;
-    string name = 2;
-    int32 price = 3;
-    string description = 4;
-}
-
-message MenuList {
-    repeated Menu Menu = 1;
 }
 
 message FilterRestaurantDto {
