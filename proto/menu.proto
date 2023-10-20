@@ -6,8 +6,7 @@ service MenuService {
     rpc GetAllMenu(Empty) returns (MenuList) {}
     rpc GetMenu (MenuId) returns (Menu){}
     rpc GetAllMenuByRestaurant(RestaurantId) returns (MenuList) {}
-    rpc FilterRestaurant (FilterMenuDto) returns (MenuList) {}
-    rpc AddMenu (CreateMenuDto) returns (Menu) {}
+    rpc CreateMenu (CreateMenuDto) returns (Menu) {}
     rpc UpdateMenu (UpdateMenuDto) returns (Menu) {}
     rpc DeleteMenu (MenuId) returns (Empty) {}
 }
@@ -20,13 +19,6 @@ message MenuId{
 
 message RestaurantId{
     int32 id=1;
-}
-
-message FilterMenuDto {
-    int32 id =1;
-    string name=2;
-    string price=3;
-    string description=4;
 }
 
 message CreateMenuDto {
