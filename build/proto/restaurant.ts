@@ -11,17 +11,6 @@ export interface RestaurantId {
   id: number;
 }
 
-export interface Menu {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-}
-
-export interface MenuList {
-  Menu: Menu[];
-}
-
 export interface FilterRestaurantDto {
   name: string;
   openTime: string;
@@ -70,8 +59,6 @@ export interface RestaurantServiceClient {
   updateRestaurant(request: UpdateRestaurantDto): Observable<Restaurant>;
 
   deleteRestaurant(request: RestaurantId): Observable<Empty>;
-
-  getAllMenus(request: RestaurantId): Observable<MenuList>;
 }
 
 export interface RestaurantServiceController {
@@ -86,8 +73,6 @@ export interface RestaurantServiceController {
   updateRestaurant(request: UpdateRestaurantDto): Promise<Restaurant> | Observable<Restaurant> | Restaurant;
 
   deleteRestaurant(request: RestaurantId): Promise<Empty> | Observable<Empty> | Empty;
-
-  getAllMenus(request: RestaurantId): Promise<MenuList> | Observable<MenuList> | MenuList;
 }
 
 export function RestaurantServiceControllerMethods() {
@@ -99,7 +84,6 @@ export function RestaurantServiceControllerMethods() {
       "addRestaurant",
       "updateRestaurant",
       "deleteRestaurant",
-      "getAllMenus",
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
