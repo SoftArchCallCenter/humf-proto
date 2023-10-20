@@ -1,0 +1,54 @@
+syntax ="proto3";
+
+package restaurant;
+
+service MenuService {
+    rpc GetAllMenu(Empty) returns (MenuList) {}
+    rpc GetMenu (MenuId) returns (Menu){}
+    rpc GetAllMenuByRestaurant(RestaurantId) returns (MenuList) {}
+    rpc FilterRestaurant (FilterMenuDto) returns (MenuList) {}
+    rpc AddMenu (CreateMenuDto) returns (Menu) {}
+    rpc UpdateMenu (UpdateMenuDto) returns (Menu) {}
+    rpc DeleteMenu (MenuId) returns (Empty) {}
+}
+
+message Empty{}
+
+message MenuId{
+    int32 id=1;
+}
+
+message RestaurantId{
+    int32 id=1;
+}
+
+message FilterMenuDto {
+    int32 id =1;
+    string name=2;
+    string price=3;
+    string description=4;
+}
+
+message CreateMenuDto {
+    string name=1;
+    string price=2;
+    string description=3;
+}
+
+message UpdateMenuDto {
+    int32 id =1;
+    string name=2;
+    string price=3;
+    string description=4;
+}
+
+message Menu {
+    int32 id =1;
+    string name=2;
+    string price=3;
+    string description=4;
+}
+
+message MenuList{
+    repeated Menu Menu=1;
+}
