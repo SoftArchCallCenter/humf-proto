@@ -1,6 +1,6 @@
 syntax ="proto3";
 
-package restaurant;
+package menu;
 
 service MenuService {
     rpc GetAllMenu(Empty) returns (MenuList) {}
