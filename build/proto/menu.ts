@@ -17,21 +17,21 @@ export interface RestaurantId {
 
 export interface CreateMenuDto {
   name: string;
-  price: string;
+  price: number;
   description: string;
 }
 
 export interface UpdateMenuDto {
   id: number;
   name: string;
-  price: string;
+  price: number;
   description: string;
 }
 
 export interface Menu {
   id: number;
   name: string;
-  price: string;
+  price: number;
   description: string;
 }
 
