@@ -19,6 +19,7 @@ export interface CreateMenuDto {
   name: string;
   price: number;
   description: string;
+  resId: number;
 }
 
 export interface UpdateMenuDto {
@@ -26,6 +27,7 @@ export interface UpdateMenuDto {
   name: string;
   price: number;
   description: string;
+  resId: number;
 }
 
 export interface Menu {
@@ -33,6 +35,7 @@ export interface Menu {
   name: string;
   price: number;
   description: string;
+  resId: number;
 }
 
 export interface MenuList {
