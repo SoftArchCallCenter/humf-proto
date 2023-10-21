@@ -23,21 +23,21 @@ message RestaurantId{
 
 message CreateMenuDto {
     string name=1;
-    string price=2;
+    int32 price=2;
     string description=3;
 }
 
 message UpdateMenuDto {
     int32 id =1;
     string name=2;
-    string price=3;
+    int32 price=3;
     string description=4;
 }
 
 message Menu {
     int32 id =1;
     string name=2;
-    string price=3;
+    int32 price=3;
     string description=4;
 }
 
