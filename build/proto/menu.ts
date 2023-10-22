@@ -27,7 +27,6 @@ export interface UpdateMenuDto {
   name: string;
   price: number;
   description: string;
-  resId: number;
 }
 
 export interface Menu {

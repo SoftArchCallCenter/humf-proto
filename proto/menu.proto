@@ -33,7 +33,6 @@ message UpdateMenuDto {
     string name=2;
     int32 price=3;
     string description=4;
-    int32 resId=5;
 }
 
 message Menu {
