@@ -6,7 +6,16 @@ service QueueService {
     rpc createOrder(Order) returns (Order) {}
 }
 
-// ไม่น่าต้องมี id
-message Order{
+message Menu {
+    int32 id =1;
+    string name=2;
+    int32 price=3;
+    string description=4;
+    int32 quatity=5;
+}
 
+message Order{
+    int32 userId=1;
+    int32 resId=2;
+    repeated Menu menus=3;
 }

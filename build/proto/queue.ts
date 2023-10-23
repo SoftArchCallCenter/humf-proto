@@ -4,8 +4,18 @@ import { Observable } from "rxjs";
 
 export const protobufPackage = "queue";
 
-/** ไม่น่าต้องมี id */
+export interface Menu {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  quatity: number;
+}
+
 export interface Order {
+  userId: number;
+  resId: number;
+  menus: Menu[];
 }
 
 export const QUEUE_PACKAGE_NAME = "queue";
