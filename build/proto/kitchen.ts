@@ -7,7 +7,18 @@ export const protobufPackage = "kitchen";
 export interface Empty {
 }
 
+export interface Menu {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  quatity: number;
+}
+
 export interface Order {
+  userId: number;
+  resId: number;
+  menus: Menu[];
 }
 
 export interface KitchenId {
@@ -19,6 +30,8 @@ export interface TicketId {
 }
 
 export interface Ticket {
+  id: string;
+  order: Order | undefined;
 }
 
 export interface TicketList {
