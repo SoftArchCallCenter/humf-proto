@@ -2,7 +2,7 @@
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
 
-export const protobufPackage = "restaurant";
+export const protobufPackage = "menu";
 
 export interface Empty {
 }
@@ -19,6 +19,7 @@ export interface CreateMenuDto {
   name: string;
   price: number;
   description: string;
+  resId: number;
 }
 
 export interface UpdateMenuDto {
@@ -33,13 +34,14 @@ export interface Menu {
   name: string;
   price: number;
   description: string;
+  resId: number;
 }
 
 export interface MenuList {
   Menu: Menu[];
 }
 
-export const RESTAURANT_PACKAGE_NAME = "restaurant";
+export const MENU_PACKAGE_NAME = "menu";
 
 export interface MenuServiceClient {
   getAllMenu(request: Empty): Observable<MenuList>;

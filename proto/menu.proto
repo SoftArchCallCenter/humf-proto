@@ -1,6 +1,6 @@
 syntax ="proto3";
 
-package restaurant;
+package menu;
 
 service MenuService {
     rpc GetAllMenu(Empty) returns (MenuList) {}
@@ -25,6 +25,7 @@ message CreateMenuDto {
     string name=1;
     int32 price=2;
     string description=3;
+    int32 resId=4;
 }
 
 message UpdateMenuDto {
@@ -39,6 +40,7 @@ message Menu {
     string name=2;
     int32 price=3;
     string description=4;
+    int32 resId=5;
 }
 
 message MenuList{
