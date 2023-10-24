@@ -31,6 +31,7 @@ export interface TicketId {
 
 export interface Ticket {
   id: number;
+  status: string;
   order: Order | undefined;
 }
 
