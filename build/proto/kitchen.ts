@@ -22,15 +22,15 @@ export interface Order {
 }
 
 export interface KitchenId {
-  id: string;
+  id: number;
 }
 
 export interface TicketId {
-  id: string;
+  id: number;
 }
 
 export interface Ticket {
-  id: string;
+  id: number;
   order: Order | undefined;
 }
 
@@ -39,7 +39,14 @@ export interface TicketList {
 }
 
 export interface UpdateTicketDto {
-  id: string;
+  id: number;
+  status: string;
+}
+
+export interface CreateTicketDto {
+  userId: number;
+  resId: number;
+  menus: Menu[];
 }
 
 export const KITCHEN_PACKAGE_NAME = "kitchen";
@@ -47,7 +54,7 @@ export const KITCHEN_PACKAGE_NAME = "kitchen";
 export interface KitchenServiceClient {
   getOrder(request: KitchenId): Observable<Order>;
 
-  createTicket(request: KitchenId): Observable<TicketList>;
+  createTicket(request: CreateTicketDto): Observable<Ticket>;
 
   getTickets(request: KitchenId): Observable<TicketList>;
 
@@ -59,7 +66,7 @@ export interface KitchenServiceClient {
 export interface KitchenServiceController {
   getOrder(request: KitchenId): Promise<Order> | Observable<Order> | Order;
 
-  createTicket(request: KitchenId): Promise<TicketList> | Observable<TicketList> | TicketList;
+  createTicket(request: CreateTicketDto): Promise<Ticket> | Observable<Ticket> | Ticket;
 
   getTickets(request: KitchenId): Promise<TicketList> | Observable<TicketList> | TicketList;
 
