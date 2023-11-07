@@ -5,6 +5,7 @@ package queue;
 service QueueService {
     rpc createOrder(Order) returns (Order) {}
     rpc consumeQueue(RestaurantId) returns (Order) {}
+    rpc acceptOrder(AcceptOrderDto) returns (Order) {}
 }
 
 message Menu {
@@ -23,4 +24,9 @@ message Order{
 
 message RestaurantId{
     int32 id=1;
+}
+
+message AcceptOrderDto{
+    bool accept=1;
+    int32 resId=2;
 }
