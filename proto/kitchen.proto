@@ -3,7 +3,6 @@ syntax ="proto3";
 package kitchen;
 
 service KitchenService {
-    rpc GetOrder(KitchenId) returns (Order) {}
     rpc CreateTicket (CreateTicketDto) returns (Ticket){}
     rpc GetTickets (KitchenId) returns (TicketList){}
     rpc UpdateTicket (UpdateTicketDto) returns (Ticket) {}
