@@ -4,6 +4,7 @@ package queue;
 
 service QueueService {
     rpc createOrder(Order) returns (Order) {}
+    rpc consumeQueue(RestaurantId) returns (Order) {}
 }
 
 message Menu {
@@ -18,4 +19,8 @@ message Order{
     int32 userId=1;
     int32 resId=2;
     repeated Menu menus=3;
+}
+
+message RestaurantId{
+    int32 id=1;
 }
