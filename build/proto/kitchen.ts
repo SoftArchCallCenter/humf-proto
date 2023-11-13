@@ -7,6 +7,15 @@ export const protobufPackage = "kitchen";
 export interface Empty {
 }
 
+export interface TotalTicket {
+  resId: number;
+  total: number;
+}
+
+export interface TotalTicketList {
+  totals: TotalTicket[];
+}
+
 export interface Menu {
   id: number;
   name: string;
@@ -66,6 +75,8 @@ export interface KitchenServiceClient {
   updateTicket(request: UpdateTicketDto): Observable<Ticket>;
 
   completeTicket(request: TicketId): Observable<Empty>;
+
+  getAllKitchenTotalTickets(request: Empty): Observable<TotalTicketList>;
 }
 
 export interface KitchenServiceController {
@@ -78,6 +89,8 @@ export interface KitchenServiceController {
   updateTicket(request: UpdateTicketDto): Promise<Ticket> | Observable<Ticket> | Ticket;
 
   completeTicket(request: TicketId): Promise<Empty> | Observable<Empty> | Empty;
+
+  getAllKitchenTotalTickets(request: Empty): Promise<TotalTicketList> | Observable<TotalTicketList> | TotalTicketList;
 }
 
 export function KitchenServiceControllerMethods() {
@@ -88,6 +101,7 @@ export function KitchenServiceControllerMethods() {
       "getTicketsByUserId",
       "updateTicket",
       "completeTicket",
+      "getAllKitchenTotalTickets",
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);

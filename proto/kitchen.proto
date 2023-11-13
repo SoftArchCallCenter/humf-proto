@@ -8,9 +8,19 @@ service KitchenService {
     rpc GetTicketsByUserId (UserId) returns (TicketList){}
     rpc UpdateTicket (UpdateTicketDto) returns (Ticket) {}
     rpc CompleteTicket (TicketId) returns (Empty) {}
+    rpc GetAllKitchenTotalTickets (Empty) returns (TotalTicketList) {}
 }
 
 message Empty{}
+
+message TotalTicket{
+    int32 resId=1;
+    int32 total=2;
+}
+
+message TotalTicketList{
+    repeated TotalTicket totals=1;
+}
 
 message Menu {
     int32 id =1;
