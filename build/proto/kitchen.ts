@@ -21,6 +21,10 @@ export interface Order {
   menus: Menu[];
 }
 
+export interface UserId {
+  id: number;
+}
+
 export interface KitchenId {
   id: number;
 }
@@ -57,6 +61,8 @@ export interface KitchenServiceClient {
 
   getTickets(request: KitchenId): Observable<TicketList>;
 
+  getTicketsByUserId(request: UserId): Observable<TicketList>;
+
   updateTicket(request: UpdateTicketDto): Observable<Ticket>;
 
   completeTicket(request: TicketId): Observable<Empty>;
@@ -67,6 +73,8 @@ export interface KitchenServiceController {
 
   getTickets(request: KitchenId): Promise<TicketList> | Observable<TicketList> | TicketList;
 
+  getTicketsByUserId(request: UserId): Promise<TicketList> | Observable<TicketList> | TicketList;
+
   updateTicket(request: UpdateTicketDto): Promise<Ticket> | Observable<Ticket> | Ticket;
 
   completeTicket(request: TicketId): Promise<Empty> | Observable<Empty> | Empty;
@@ -74,7 +82,13 @@ export interface KitchenServiceController {
 
 export function KitchenServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ["createTicket", "getTickets", "updateTicket", "completeTicket"];
+    const grpcMethods: string[] = [
+      "createTicket",
+      "getTickets",
+      "getTicketsByUserId",
+      "updateTicket",
+      "completeTicket",
+    ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
       GrpcMethod("KitchenService", method)(constructor.prototype[method], method, descriptor);

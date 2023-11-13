@@ -5,6 +5,7 @@ package kitchen;
 service KitchenService {
     rpc CreateTicket (CreateTicketDto) returns (Ticket){}
     rpc GetTickets (KitchenId) returns (TicketList){}
+    rpc GetTicketsByUserId (UserId) returns (TicketList){}
     rpc UpdateTicket (UpdateTicketDto) returns (Ticket) {}
     rpc CompleteTicket (TicketId) returns (Empty) {}
 }
@@ -23,6 +24,10 @@ message Order{
     int32 userId=1;
     int32 resId=2;
     repeated Menu menus=3;
+}
+
+message UserId{
+    int32 id=1;
 }
 
 message KitchenId{
